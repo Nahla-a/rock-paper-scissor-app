@@ -22,27 +22,29 @@ let rockButton = document.getElementById("rock");
 let paperButton = document.getElementById("paper");
 let scissorButton = document.getElementById("scissor");
 
+let totalPlayerScore = 0;
+let totalComputerScore = 0;
+
 let table = document.getElementById("theTable");
-    let scoreRow = table.insertRow();
-    scoreRow.style.border = "2pt solid blue";
-    let computer = scoreRow.insertCell();
-    computer.style.border = "2pt solid blue";
-    computer.style.margin = "20px";
+let scoreRow = table.insertRow();
+scoreRow.style.border = "2pt solid blue";
+let computer = scoreRow.insertCell();
+computer.style.border = "2pt dotted pink";
+computer.style.margin = "20px";
 
-    let user = scoreRow.insertCell();
-    user.style.border = "2pt solid blue";
-    computer.innerHTML = "COMPUTER";
-    user.innerHTML = "USER";
+let user = scoreRow.insertCell();
+user.style.border = "2pt dotted pink";
+computer.innerHTML = "COMPUTER";
+user.innerHTML = "USER";
 
-    let totalScore = table.insertRow();
-    let compScore = totalScore.insertCell();
-    compScore.innerHTML = 0;
+// Insert a row in the table to show the score om it:
+let totalScore = table.insertRow();
 
-    let playerScore = totalScore.insertCell();
-    playerScore.innerHTML = 0;
+let compScore = totalScore.insertCell();
+compScore.style.border = "2pt dotted pink";
 
-
-
+let playerScore = totalScore.insertCell();
+playerScore.style.border = "2pt dotted pink";
 
 rockButton.addEventListener("click", function () {
     computeScore(0);
@@ -58,18 +60,21 @@ scissorButton.addEventListener("click", function () {
 
 })
 
+
 function computeScore(userSelectedOption) {
 
     let randomSelectedOption = randomSelection();
     let score = scoreMatrix[userSelectedOption][randomSelectedOption]
     if (score == "") {
-        alert("No buddy won")
+        alert("No body won")
     } else if (score == "u") {
         alert("You won!!");
-        playerScore = playerScore + 1;
+        playerScore.innerHTML = ++totalPlayerScore;
+        console.log(totalPlayerScore);
+
     } else if (score == "c") {
         alert("computer won");
-        compScore.innerHTML = compScore+1;
+        compScore.innerHTML = ++totalComputerScore;
     }
 }
 
@@ -78,7 +83,7 @@ function randomSelection() {
 
 }
 
-    
+
 
 
 

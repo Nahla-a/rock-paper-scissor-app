@@ -1,4 +1,20 @@
+body{
+    background-color: aqua;
+}
+
 .theTable{
-    /* border: 2pt solid black; */
+    background-color: gray;
+    border: thick solid blue;
+}
+
+
+ tr, th{
+    border: 1pt dotted blue;
+    background-color: gray;
+}
+
+
+.theTable{
+    margin: 20px;
     padding: 20px;
 }
